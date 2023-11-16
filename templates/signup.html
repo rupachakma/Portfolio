@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content%}
+    <div class="Container p-5 ">
+        <form action="" method = "POST">
+            {% csrf_token %}
+
+            {% if messages %}
+            <ul>
+                {% for i in messages %}
+                <li>{{i}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="p-5 col-7 mx-auto bg-white">
+                <h2 class="text-center">Register Page</h2>
+                <hr>
+                    {{form.as_p}}
+                <input type="submit" class="btn btn-success" value="Create Account">
+                <a href="{% url 'loginpage' %}">I have already an account</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
